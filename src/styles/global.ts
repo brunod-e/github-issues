@@ -10,17 +10,26 @@ export const GlobalStylle = createGlobalStyle`
 
 :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme['green-500']};
+    box-shadow: 0 0 0 2px ${({ theme }) => theme['blue']};
 }
 
 body {
-    background-color: ${({ theme }) => theme['gray-800']};
-    color: ${({ theme }) => theme['gray-100']};
+    background-color: ${({ theme }) => theme['base-background']};
+    color: ${({ theme }) => theme['base-text']};
     -webkit-font-smoothing: antialiased;
 }
 
 body, input, textarea, button {
-    font: 400 1rem "Roboto", sans-serif
+    font: 400 1rem "Nunito", sans-serif
 }
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+  }
 
 `;
