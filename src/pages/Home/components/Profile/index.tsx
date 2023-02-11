@@ -7,7 +7,10 @@ import { ExternalLink } from '../../../../components/ExternalLink';
 export const Profile = () => {
   return (
     <ProfileContainer>
-      <img src='https://avatars.githubusercontent.com/u/55602031?v=4' alt='' />
+      <img
+        src='https://avatars.githubusercontent.com/u/55602031?v=4'
+        alt='Imagem do perfil'
+      />
       <ProfileInfo>
         <header>
           <h1>Cameron Williamson</h1>
