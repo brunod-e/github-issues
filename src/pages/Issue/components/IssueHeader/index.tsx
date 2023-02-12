@@ -21,7 +21,6 @@ export const IssueHeader = ({ data, isLoading }: IssueHeaderProps) => {
   const navigate = useNavigate();
   const { html_url, user, created_at, comments, title } = data;
   const formattedDate = dateFormatter(created_at);
-  console.log(typeof created_at);
 
   const handleGoBackHome = () => {
     navigate('/');

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Spinner } from '../../components/Spinner';
 import { api } from '../../lib/axios';
 import { IssueType } from '../Issue';
@@ -14,21 +14,24 @@ export const Home = () => {
   const [issues, setIssues] = useState<IssueType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getIssues = async (query: string = '') => {
-    try {
-      setIsLoading(true);
-      const response = await api.get(
-        `/search/issues?q=${query}%20repo:${username}/${repo}%20label:published`
-      );
-      const data = response.data.items;
+  const getIssues = useCallback(
+    async (query: string = '') => {
+      try {
+        setIsLoading(true);
+        const response = await api.get(
+          `/search/issues?q=${query}%20repo:${username}/${repo}%20label:published`
+        );
+        const data = response.data.items;
 
-      setIssues(data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+        setIssues(data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [issues]
+  );
 
   useEffect(() => {
     getIssues();

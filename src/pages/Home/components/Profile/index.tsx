@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProfileContainer, ProfileInfo } from './styles';
 import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons';
@@ -25,7 +25,7 @@ export const Profile = () => {
   );
   const [isLoading, setIsLoading] = useState(true);
 
-  const getProfileData = async () => {
+  const getProfileData = useCallback(async () => {
     try {
       setIsLoading(true);
       const response = await api.get(`/users/${username}`);
@@ -37,7 +37,7 @@ export const Profile = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [profileData]);
 
   useEffect(() => {
     getProfileData();

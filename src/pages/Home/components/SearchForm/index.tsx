@@ -19,8 +19,8 @@ export const SearchForm = ({ issuesLength, getIssues }: SearchFormProps) => {
     resolver: zodResolver(querySchema),
   });
 
-  const handleSearchIssues = (data: SearchFormQuery) => {
-    getIssues(data.query);
+  const handleSearchIssues = async (data: SearchFormQuery) => {
+    await getIssues(data.query);
   };
 
   return (

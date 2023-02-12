@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../../lib/axios';
 import { IssueContent } from './components/IssueContent';
@@ -25,7 +25,7 @@ export const Issue = () => {
 
   const { id } = useParams();
 
-  const getIssueDetails = async () => {
+  const getIssueDetails = useCallback(async () => {
     try {
       setIsLoading(true);
       const response = await api.get(`/repos/${username}/${repo}/issues/${id}`);
@@ -37,7 +37,7 @@ export const Issue = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [issueData]);
 
   useEffect(() => {
     getIssueDetails();
