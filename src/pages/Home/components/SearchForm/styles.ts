@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const SearchFormContainer = styled.form`
   width: 100%;
-  max-width: 54rem;
   margin: 4.5rem auto 3rem;
 
   header {

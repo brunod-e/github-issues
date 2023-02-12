@@ -5,8 +5,9 @@ export const ProfileContainer = styled.section`
   align-items: center;
   justify-content: space-between;
 
+  box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
+
   width: 100%;
-  max-width: 54rem;
   height: 13.25rem;
 
   margin: 0 auto;
@@ -54,6 +55,8 @@ export const ProfileInfo = styled.div`
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+      color: ${({ theme }) => theme['base-subtitle']};
 
       svg {
         width: 1.125rem;

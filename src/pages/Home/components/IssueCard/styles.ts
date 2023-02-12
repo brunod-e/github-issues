@@ -32,7 +32,7 @@ export const IssueCardContainer = styled(Link)`
       font-size: 1.25rem;
       font-weight: 700;
       color: ${({ theme }) => theme['base-title']};
-      width: 15rem;
+      width: 70%;
     }
 
     span {

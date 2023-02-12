@@ -6,6 +6,17 @@ export const GlobalStylle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 
+    ::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+    ::-webkit-scrollbar-track {
+      background: ${({ theme }) => theme['base-border']}
+    }
+    ::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme['blue']};
+      border-radius: 10px;
+    }
+
 }
 
 :focus {
@@ -30,6 +41,6 @@ button {
 a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
-
 `;

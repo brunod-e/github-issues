@@ -12,6 +12,7 @@ export const ExternalLinkContainer = styled.a<ExternalLinkProps>`
 
   font-size: 0.75rem;
   font-weight: 700;
+  text-transform: uppercase;
   color: ${({ theme }) => theme['blue']};
 
   border-bottom: 1px solid transparent;
@@ -20,4 +21,10 @@ export const ExternalLinkContainer = styled.a<ExternalLinkProps>`
     border-bottom-color: ${({ theme }) => theme['blue']};
     transition: 0.2s;
   }
+
+  ${({ variant }) =>
+    variant === 'iconLeft' &&
+    css`
+      flex-direction: row-reverse;
+    `}
 `;
