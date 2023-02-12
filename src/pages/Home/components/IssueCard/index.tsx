@@ -1,4 +1,4 @@
-import { formatDateFromNow } from '../../../../utils/formatter';
+import { dateFormatter } from '../../../../utils/formatter';
 import { IssueType } from '../../../Issue';
 import { IssueCardContainer } from './styles';
 
@@ -9,7 +9,7 @@ interface IssueCardProps {
 export const IssueCard = ({ issue }: IssueCardProps) => {
   const { title, body, created_at, number } = issue;
 
-  const formattedDate = formatDateFromNow(created_at);
+  const formattedDate = dateFormatter(created_at);
 
   return (
     <IssueCardContainer to={`/issue/${number}`}>

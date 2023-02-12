@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { IssueType } from '../..';
 import { ExternalLink } from '../../../../components/ExternalLink';
 import { Spinner } from '../../../../components/Spinner';
-import { formatDateFromNow } from '../../../../utils/formatter';
+import { dateFormatter } from '../../../../utils/formatter';
 import { IssueHeaderContainer } from './styles';
 
 interface IssueHeaderProps {
@@ -20,7 +20,8 @@ interface IssueHeaderProps {
 export const IssueHeader = ({ data, isLoading }: IssueHeaderProps) => {
   const navigate = useNavigate();
   const { html_url, user, created_at, comments, title } = data;
-  // const formattedDate = formatDateFromNow(created_at);
+  const formattedDate = dateFormatter(created_at);
+  console.log(typeof created_at);
 
   const handleGoBackHome = () => {
     navigate('/');
@@ -56,7 +57,7 @@ export const IssueHeader = ({ data, isLoading }: IssueHeaderProps) => {
             </li>
             <li>
               <FontAwesomeIcon icon={faCalendarDay} />
-              {/* {formattedDate} */}
+              {formattedDate}
             </li>
             <li>
               <FontAwesomeIcon icon={faComment} />

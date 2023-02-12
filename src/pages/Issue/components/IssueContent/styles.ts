@@ -8,6 +8,12 @@ export const IssueContentContainer = styled.section`
   padding: 2.5rem 2rem;
   margin-bottom: 8rem;
 
+  img {
+    border: 2px solid ${({ theme }) => theme['blue']};
+    border-radius: 10px;
+    width: 100%;
+  }
+
   h1,
   h2,
   h3 {
